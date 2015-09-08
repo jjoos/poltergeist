@@ -5,10 +5,10 @@ class Poltergeist.WebPage
                 'onUrlChanged', 'onPageCreated', 'onClosing']
 
   @DELEGATES = ['open', 'sendEvent', 'uploadFile', 'release', 'render',
-                'renderBase64', 'goBack', 'goForward']
+                'renderBase64', 'goBack', 'goForward', 'clearMemoryCache']
 
   @COMMANDS  = ['currentUrl', 'find', 'nodeCall', 'documentSize',
-                'beforeUpload', 'afterUpload', 'clearLocalStorage', 'clearMemoryCache']
+                'beforeUpload', 'afterUpload', 'clearLocalStorage']
 
   @EXTENSIONS = []
 
@@ -315,7 +315,6 @@ class Poltergeist.WebPage
       (name, args) -> __poltergeist.externalCall(name, args),
       name, args
     )
-
     if result != null
       if result.error?
         switch result.error.message

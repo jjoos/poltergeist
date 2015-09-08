@@ -14,12 +14,16 @@ class Poltergeist.Browser
 
     if @page?
       unless @page.closed
-        @page.clearLocalStorage() if @page.currentUrl() != 'about:blank'
+        if @page.currentUrl() != 'about:blank'
+          console.info '@page.clearLocalStorage()'
+          @page.clearLocalStorage()
+
         @page.release()
       phantom.clearCookies()
 
     @page = @currentPage = new Poltergeist.WebPage
     @page.setViewportSize(width: @width, height: @height)
+    console.info '@page.clearMemoryCache()'
     @page.clearMemoryCache()
     @page.handle = "#{@_counter++}"
     @pages.push(@page)
