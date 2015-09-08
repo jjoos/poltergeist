@@ -20,6 +20,7 @@ class Poltergeist.Browser
 
     @page = @currentPage = new Poltergeist.WebPage
     @page.setViewportSize(width: @width, height: @height)
+    @page.clearMemoryCache()
     @page.handle = "#{@_counter++}"
     @pages.push(@page)
 

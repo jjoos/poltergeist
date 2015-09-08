@@ -8,7 +8,7 @@ class Poltergeist.WebPage
                 'renderBase64', 'goBack', 'goForward']
 
   @COMMANDS  = ['currentUrl', 'find', 'nodeCall', 'documentSize',
-                'beforeUpload', 'afterUpload', 'clearLocalStorage']
+                'beforeUpload', 'afterUpload', 'clearLocalStorage', 'clearMemoryCache']
 
   @EXTENSIONS = []
 
@@ -334,3 +334,4 @@ class Poltergeist.WebPage
 
   canGoForward: ->
     this.native().canGoForward
+
